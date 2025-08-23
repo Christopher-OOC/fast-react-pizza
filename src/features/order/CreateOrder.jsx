@@ -43,11 +43,11 @@ function CreateOrder() {
   console.log("FormErrors: ", formErrors);
 
   return (
-    <div>
-      <h2>Ready to order? Let's go!</h2>
+    <div className="px-6 py-6">
+      <h2 className="mb-8 text-xl font-semibold">Ready to order? Let's go!</h2>
 
       <Form method="POST" encType="multipart/form-data">
-        <div>
+        <div className="mb-5 flex gap-2 flex-col sm:flex-row">
           <label>First Name</label>
           <input className="input" type="text" name="customer" required />
         </div>
@@ -82,7 +82,7 @@ function CreateOrder() {
 
         <div>
           <input type="hidden" name="cart" value={JSON.stringify(fakeCart)} />
-          <Button disabled={isSubmitting}>
+          <Button type="primary" disabled={isSubmitting}>
             {isSubmitting ? "Placing Order" : "Order now"}
           </Button>
         </div>
