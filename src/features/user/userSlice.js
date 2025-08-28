@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getAddress } from "../../services/apiRestaurant";
+import { getAddress } from "../../services/apiGeocoding";
 
 function getPosition() {
   return new Promise(function (resolve, reject) {
@@ -21,6 +21,8 @@ export const fetchAddress = createAsyncThunk(
     const addressObj = await getAddress(position);
     const address = `${addressObj?.locality}, ${addressObj?.city} ${addressObj?.postcode}, ${addressObj?.countryName}`;
 
+    console.log("Postion: ", position);
+    console.log("address: ", address);
     // 3) Then we return an object with the data that we are interested in
     // Payload of the Fulfilled State
     return { position, address };
